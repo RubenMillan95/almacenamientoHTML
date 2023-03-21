@@ -17,7 +17,7 @@ let botonBorrar=document.getElementById("btnBorrar");
 botonBorrar.addEventListener('click', function(){
     sessionStorage.clear();
     localStorage.clear();
-}) 
+}); 
 
 //recorrer el sessionstorage y el localstorage
 //mostrando las variables como una fila en la tabla del DOM
@@ -27,12 +27,30 @@ function construirFilas(){
     //crear un arreglo con las fuentes de datos
     let fuentes=[localStorage, sessionStorage];
 
-    for(let k=0; k<fuentes.length;k++){
+     for(let k=0; k<fuentes.length;k++){
         let miFuente=fuentes[k];
-    }
+     for(let i=0; i<miFuente.length;i++){
+      
+        let cuerpoTabla=document.getElementById("cuerpoTabla");
+      
+        cuerpoTabla.insertRow(i);
+        let fila=cuerpoTabla.insertRow(i);
+        let celda=fila.insertCell(0);
+        let texto=document.createTextNode(miFuente.key(i)); 
+        celda.appendChild(texto);
 
+        celda=fila.insertCell(1);
+        texto.document.createTextNode(miFuente.getItem(miFuente.key(i)));
+        celda.appendChild(texto);
 
-    for(let i=0; i<miFuente .length;i++){
+      /*
+      let clave=miFuente.key(i); 
+      let.valor=miFuente.getItem(miFuente.key(i));
+
+      cuerpoTabla.innerHTML=cuerpoTabla.innerHTML+`<tr><td>${clave}</td><td>${valor}</td></tr>`; //comillas inveritdas para cadenas de texto 
+      */
+
+     /*
     let cuerpoTabla=document.getElementById("cuerpoTabla");
 
     let fila=document.createElement("tr");
@@ -52,5 +70,5 @@ function construirFilas(){
     cuerpoTabla.appendChild(fila);
     }
     fila.appendChild(celda);
-    cuerpoTabla.appendChild(fila);
-}
+    cuerpoTabla.appendChild(fila);*/
+}}}
